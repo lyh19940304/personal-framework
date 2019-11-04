@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basic.rabbitmq.mapper.RabbitConfMapper">
+  <resultMap id="BaseResultMap" type="com.basic.rabbitmq.model.RabbitConf">
+  	<id column="id" jdbcType="INTEGER" property="id" />
+  	<result column="host" jdbcType="VARCHAR" property="host" />
+  	<result column="port" jdbcType="INTEGER" property="port" />
+  	<result column="username" jdbcType="VARCHAR" property="username" />
+  	<result column="password" jdbcType="VARCHAR" property="password" />
+  	<result column="v_host" jdbcType="VARCHAR" property="vHost" />
+  	<result column="exchange_name" jdbcType="VARCHAR" property="exchangeName" />
+  	<result column="exchange_type" jdbcType="VARCHAR" property="exchangeType" />
+  	<result column="queue" jdbcType="VARCHAR" property="queue" />
+  	<result column="routing_key" jdbcType="VARCHAR" property="routingKey" />
+  	<result column="confirm" jdbcType="BIT" property="confirm" />
+  	<result column="callback" jdbcType="VARCHAR" property="callback" />
+  	<result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  
+  <sql id ="Table_Name">
+  	t_rabbit_conf
+  </sql>
+  
+  <sql id="Base_Column_List">
+	id,
+  	host,port,username,password,v_host,exchange_name,exchange_type,queue,routing_key,confirm,callback,remark
+  </sql>
+  
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from <include refid="Table_Name" />
+    where
+    	id = #{id,jdbcType=INTEGER}
+    	
+  </select>
+  <delete id="deleteByPrimaryKey"  parameterType="RabbitConf">
+    delete from <include refid="Table_Name" />
+    where 
+    	id = #{id,jdbcType=INTEGER}
+    	
+  </delete>
+  <insert id="insert" parameterType="RabbitConf" useGeneratedKeys="true" keyProperty="id">
+  	insert into <include refid="Table_Name" /> (host,port,username,password,v_host,exchange_name,exchange_type,queue,routing_key,confirm,callback,remark)
+  	values (#{host,jdbcType=VARCHAR},#{port,jdbcType=INTEGER},#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{vHost,jdbcType=VARCHAR},#{exchangeName,jdbcType=VARCHAR},#{exchangeType,jdbcType=VARCHAR},#{queue,jdbcType=VARCHAR},#{routingKey,jdbcType=VARCHAR},#{confirm,jdbcType=BIT},#{callback,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="RabbitConf" useGeneratedKeys="true" keyProperty="id">
+    insert into <include refid="Table_Name" /> 
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+    <if test="host != null">
+    	host,
+	</if>
+    <if test="port != null">
+    	port,
+	</if>
+    <if test="username != null">
+    	username,
+	</if>
+    <if test="password != null">
+    	password,
+	</if>
+    <if test="vHost != null">
+    	v_host,
+	</if>
+    <if test="exchangeName != null">
+    	exchange_name,
+	</if>
+    <if test="exchangeType != null">
+    	exchange_type,
+	</if>
+    <if test="queue != null">
+    	queue,
+	</if>
+    <if test="routingKey != null">
+    	routing_key,
+	</if>
+    <if test="confirm != null">
+    	confirm,
+	</if>
+    <if test="callback != null">
+    	callback,
+	</if>
+    <if test="remark != null">
+    	remark,
+	</if>
+	</trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+    <if test="host != null">
+    	#{host,jdbcType=VARCHAR},
+	</if>
+    <if test="port != null">
+    	#{port,jdbcType=INTEGER},
+	</if>
+    <if test="username != null">
+    	#{username,jdbcType=VARCHAR},
+	</if>
+    <if test="password != null">
+    	#{password,jdbcType=VARCHAR},
+	</if>
+    <if test="vHost != null">
+    	#{vHost,jdbcType=VARCHAR},
+	</if>
+    <if test="exchangeName != null">
+    	#{exchangeName,jdbcType=VARCHAR},
+	</if>
+    <if test="exchangeType != null">
+    	#{exchangeType,jdbcType=VARCHAR},
+	</if>
+    <if test="queue != null">
+    	#{queue,jdbcType=VARCHAR},
+	</if>
+    <if test="routingKey != null">
+    	#{routingKey,jdbcType=VARCHAR},
+	</if>
+    <if test="confirm != null">
+    	#{confirm,jdbcType=BIT},
+	</if>
+    <if test="callback != null">
+    	#{callback,jdbcType=VARCHAR},
+	</if>
+    <if test="remark != null">
+    	#{remark,jdbcType=VARCHAR},
+	</if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="RabbitConf">
+    update <include refid="Table_Name" />
+    <set>
+    <if test="host != null">
+    	host = #{host,jdbcType=VARCHAR},
+	</if>
+    <if test="port != null">
+    	port = #{port,jdbcType=INTEGER},
+	</if>
+    <if test="username != null">
+    	username = #{username,jdbcType=VARCHAR},
+	</if>
+    <if test="password != null">
+    	password = #{password,jdbcType=VARCHAR},
+	</if>
+    <if test="vHost != null">
+    	v_host = #{vHost,jdbcType=VARCHAR},
+	</if>
+    <if test="exchangeName != null">
+    	exchange_name = #{exchangeName,jdbcType=VARCHAR},
+	</if>
+    <if test="exchangeType != null">
+    	exchange_type = #{exchangeType,jdbcType=VARCHAR},
+	</if>
+    <if test="queue != null">
+    	queue = #{queue,jdbcType=VARCHAR},
+	</if>
+    <if test="routingKey != null">
+    	routing_key = #{routingKey,jdbcType=VARCHAR},
+	</if>
+    <if test="confirm != null">
+    	confirm = #{confirm,jdbcType=BIT},
+	</if>
+    <if test="callback != null">
+    	callback = #{callback,jdbcType=VARCHAR},
+	</if>
+    <if test="remark != null">
+    	remark = #{remark,jdbcType=VARCHAR}
+	</if>
+    </set>
+    where 
+    	id = #{id,jdbcType=INTEGER}
+    	
+  </update>
+  <update id="updateByPrimaryKey" parameterType="RabbitConf">
+    update <include refid="Table_Name" />
+    set
+    host = #{host,jdbcType=VARCHAR},
+    port = #{port,jdbcType=INTEGER},
+    username = #{username,jdbcType=VARCHAR},
+    password = #{password,jdbcType=VARCHAR},
+    v_host = #{vHost,jdbcType=VARCHAR},
+    exchange_name = #{exchangeName,jdbcType=VARCHAR},
+    exchange_type = #{exchangeType,jdbcType=VARCHAR},
+    queue = #{queue,jdbcType=VARCHAR},
+    routing_key = #{routingKey,jdbcType=VARCHAR},
+    confirm = #{confirm,jdbcType=BIT},
+    callback = #{callback,jdbcType=VARCHAR},
+    remark = #{remark,jdbcType=VARCHAR}
+    where 
+    	id = #{id,jdbcType=INTEGER}
+    	
+  </update>
+</mapper>

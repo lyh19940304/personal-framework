@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>basic</artifactId>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>com.liuyh</groupId>
+		<artifactId>jar-manager</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<module.version>0.0.1-SNAPSHOT</module.version>
+
+		<module.common>basic-common</module.common>
+		<module.mapper>basic-mapper</module.mapper>
+		<module.swagger2>basic-swagger2</module.swagger2>
+		<module.template>basic-template</module.template>
+		<module.generator>basic-generator</module.generator>
+		<module.websocket>basic-websocket</module.websocket>
+		<module.encryption>basic-encryption</module.encryption>
+		<module.wechat>basic-wechat</module.wechat>
+		<module.rabbitmq>basic-rabbitmq</module.rabbitmq>
+		<module.spring>basic-spring</module.spring>
+	</properties>
+
+	<modules>
+		<module>basic-common</module>
+		<module>basic-mapper</module>
+		<module>basic-swagger2</module>
+		<module>basic-template</module>
+		<module>basic-generator</module>
+		<module>basic-websocket</module>
+		<module>basic-encryption</module>
+		<module>basic-wechat</module>
+		<module>basic-rabbitmq</module>
+		<module>basic-spring</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- bagin of basic组件定义 -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${module.common}</artifactId>
+				<version>${module.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${module.mapper}</artifactId>
+				<version>${module.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${module.swagger2}</artifactId>
+				<version>${module.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${module.template}</artifactId>
+				<version>${module.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${module.generator}</artifactId>
+				<version>${module.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${module.encryption}</artifactId>
+				<version>${module.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${module.wechat}</artifactId>
+				<version>${module.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${module.rabbitmq}</artifactId>
+				<version>${module.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${module.spring}</artifactId>
+				<version>${module.version}</version>
+			</dependency>
+			<!-- end of basic组件定义 -->
+		</dependencies>
+	</dependencyManagement>
+	
+</project>

@@ -1,0 +1,154 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.liuyh</groupId>
+	<artifactId>jar-manager</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.0.RELEASE</version>
+	</parent>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<swagger2.version>2.6.1</swagger2.version>
+		<swagger2.anno.version>1.5.10</swagger2.anno.version>
+		<lombok.version>1.16.20</lombok.version>
+		<fastjson.version>1.2.56</fastjson.version>
+		<guava.version>25.1-jre</guava.version>
+		<cglib.version>3.2.10</cglib.version>
+		<slf4j.api.version>1.7.25</slf4j.api.version>
+		<jwt.version>3.3.0</jwt.version>
+		<dubbo.springboot.version>0.2.0</dubbo.springboot.version>
+		<mybatis.springboot.version>1.3.2</mybatis.springboot.version>
+		<freemarker.version>2.3.28</freemarker.version>
+		<mysql.version>5.1.46</mysql.version>
+		<mybatis.version>3.4.6</mybatis.version>
+		<rabbitmq.version>5.1.2</rabbitmq.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- lombok简化代码插件 -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- begin of swagger2 -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${swagger2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-annotations</artifactId>
+				<version>${swagger2.anno.version}</version>
+			</dependency>
+			<!-- end of swagger2 -->
+
+			<!-- alibaba.fastjson -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+
+			<!-- google.guava -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+
+			<!-- cglib动态代理 -->
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib</artifactId>
+				<version>${cglib.version}</version>
+			</dependency>
+
+			<!-- slf4j -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.api.version}</version>
+			</dependency>
+
+			<!-- dubbo依赖 -->
+			<dependency>
+				<groupId>com.alibaba.boot</groupId>
+				<artifactId>dubbo-spring-boot-starter</artifactId>
+				<version>${dubbo.springboot.version}</version>
+			</dependency>
+			<!-- 基于jwt的token认证依赖 -->
+			<dependency>
+				<groupId>com.auth0</groupId>
+				<artifactId>java-jwt</artifactId>
+				<version>${jwt.version}</version>
+			</dependency>
+			<!-- freemark模板 -->
+			<dependency>
+				<groupId>org.freemarker</groupId>
+				<artifactId>freemarker</artifactId>
+				<version>${freemarker.version}</version>
+			</dependency>
+			<!-- 数据库 -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+
+			<!-- mybatis 插件 -->
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis.springboot.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${mybatis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.rabbitmq</groupId>
+				<artifactId>amqp-client</artifactId>
+				<version>${rabbitmq.version}</version>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<name>Nexus Releases Repository</name>
+			<url>http://vm.center.com:8081/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Nexus Snapshots Repository</name>
+			<url>http://vm.center.com:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>

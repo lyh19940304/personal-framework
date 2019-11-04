@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>parent</artifactId>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>com.liuyh</groupId>
+		<artifactId>jar-manager</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<basic.version>0.0.1-SNAPSHOT</basic.version>
+		<basic.groupId>com.liuyh</basic.groupId>
+		<basic.common>basic-common</basic.common>
+		<basic.mapper>basic-mapper</basic.mapper>
+		<basic.swagger2>basic-swagger2</basic.swagger2>
+		<basic.template>basic-template</basic.template>
+		<basic.generator>basic-generator</basic.generator>
+
+	</properties>
+	
+	<modules>
+		<module>parent-api</module>
+		<module>parent-biz</module>
+		<module>parent-data-access</module>
+		<module>parent-service</module>
+		<module>parent-model</module>
+		<module>parent-generator</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- begin of 基础组件定义 -->
+			<dependency>
+				<groupId>${basic.groupId}</groupId>
+				<artifactId>${basic.common}</artifactId>
+				<version>${basic.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${basic.groupId}</groupId>
+				<artifactId>${basic.mapper}</artifactId>
+				<version>${basic.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${basic.groupId}</groupId>
+				<artifactId>${basic.swagger2}</artifactId>
+				<version>${basic.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${basic.groupId}</groupId>
+				<artifactId>${basic.template}</artifactId>
+				<version>${basic.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${basic.groupId}</groupId>
+				<artifactId>${basic.generator}</artifactId>
+				<version>${basic.version}</version>
+			</dependency>
+			<!-- end of 基础组件定义 -->
+			
+			<!-- begin of 父jar定义 -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>parent-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>parent-biz</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>parent-data-access</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>parent-model</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>parent-generator</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>parent-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<!-- end of 父jar定义 -->
+		</dependencies>
+	</dependencyManagement>
+	
+</project>
