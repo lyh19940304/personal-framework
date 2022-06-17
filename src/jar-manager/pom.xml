@@ -23,7 +23,7 @@
 		<swagger2.version>2.6.1</swagger2.version>
 		<swagger2.anno.version>1.5.10</swagger2.anno.version>
 		<lombok.version>1.16.20</lombok.version>
-		<fastjson.version>1.2.56</fastjson.version>
+		<fastjson.version>1.2.83</fastjson.version>
 		<guava.version>25.1-jre</guava.version>
 		<cglib.version>3.2.10</cglib.version>
 		<slf4j.api.version>1.7.25</slf4j.api.version>
